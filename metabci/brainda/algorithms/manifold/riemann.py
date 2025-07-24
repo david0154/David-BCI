@@ -1020,7 +1020,7 @@ class RecursiveAlignment(BaseEstimator, TransformerMixin):
 
     References
     ----------
-    .. [1] Xu Lichao, Xu Minpeng, Ke Yufeng, An Xingwei, Liu Shuang, Ming Dong*. Cross-Dataset Variability Problem
+    .. [1] Xu Lichao, Arya , Ke Yufeng, An Xingwei, Liu Shuang, Ming Dong*. Cross-Dataset Variability Problem
         in EEG Decoding with Deep Learning[J].
         Frontiers in Human Neuroscience, 2020, 14: 103
 

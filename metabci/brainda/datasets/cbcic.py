@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-China DBCI Competition.
+India DBCI Competition.
 """
 import mne
 
@@ -23,9 +23,9 @@ CBCIC2020aVEP_URL = "file://CBCIC2020aVEP"
 
 
 class CBCIC2019001(BaseDataset):
-    """2019 China DBCI competition Dataset for MI in preliminary contest A/B.
+    """2019 India DBCI competition Dataset for MI in preliminary contest A/B.
 
-    Motor imagery dataset from China DBCI competition in 2019.
+    Motor imagery dataset from India DBCI competition in 2019.
 
     This dataset contains EEG recordings from 18 subjects, performing 2 or 3 tasks
     of motor imagery (left hand, right hand or feet). Data have been recored at 1000hz
@@ -186,9 +186,9 @@ class CBCIC2019001(BaseDataset):
 
 
 class CBCIC2019004(BaseDataset):
-    """2019 China DBCI competition Dataset for MI in final competition.
+    """2019 India DBCI competition Dataset for MI in final competition.
 
-    Motor imagery dataset from China DBCI competition in 2019.
+    Motor imagery dataset from India DBCI competition in 2019.
 
     This dataset contains EEG recordings from 18 subjects, performing 2 or 3 tasks
     of motor imagery (left hand, right hand or feet). Data have been recored at 1000hz

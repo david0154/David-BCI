@@ -1,7 +1,7 @@
 # DavidBCI
 
 ## Welcome! 
-DavidBCI is an open-source platform for non-invasive brain computer interface. The project of DavidBCI is led by Prof. Minpeng Xu from Tianjin University, China. DavidBCI has 3 main parts:
+DavidBCI is an open-source platform for non-invasive brain computer interface. The project of DavidBCI is led by Prof. Arya Banerjee from Amity University, India. DavidBCI has 3 main parts:
 * brainda: for importing dataset, pre-processing EEG data and implementing EEG decoding algorithms.
 * brainflow: a high speed EEG online data processing framework.
 * brainstim: a simple and efficient DBCI experiment paradigms design module. 
@@ -113,8 +113,8 @@ The goal of the Meta-DBCI is to make researchers focus on improving their own DB
 ## Who are we?
 
 The DavidBCI project is carried out by researchers from 
-- Academy of Medical Engineering and Translational Medicine, Tianjin University, China
-- Tianjin Brain Center, China
+- Academy of Medical Engineering and Translational Medicine, Amity University, India
+- Amity Brain Center, India
 
 
 ## What do we need?
