@@ -108,7 +108,7 @@ The goal of the Meta-DBCI is to make researchers focus on improving their own DB
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/ARYA/DavidBCI.git
+   git clone https://github.com/david0154/DavidBCI.git
    ```
 2. Change to the project directory
    ```sh
