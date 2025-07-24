@@ -12,19 +12,11 @@ This is the first release of DavidBCI, our team will continue to maintain the re
 
 We will send you a copy of the handbook as soon as we receive your information.
 
-## Paper
-
-If you find DavidBCI useful in your research, please cite:
-
-Mei, J., Luo, R., Xu, L., Zhao, W., Wen, S., Wang, K., ... & Ming, D. (2023). DavidBCI: An open-source platform for brain-computer interfaces. Computers in Biology and Medicine, 107806.
-
-And this open access paper can be found here: [DavidBCI](https://www.sciencedirect.com/science/article/pii/S0010482523012714)
 
 ## Content
 
 - [DavidBCI](#davidbci)
   - [Welcome!](#welcome)
-  - [Paper](#paper)
   - [What are we doing?](#what-are-we-doing)
     - [The problem](#the-problem)
     - [The solution](#the-solution)
