@@ -104,7 +104,7 @@ The goal of the Meta-DBCI is to make researchers focus on improving their own DB
    ```
 2. Change to the project directory
    ```sh
-   cd DavidBCI
+   cd David-BCI
    ```
 3. Install all requirements
    ```sh
