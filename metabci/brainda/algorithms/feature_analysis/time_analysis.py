@@ -137,7 +137,7 @@ class TimeAnalysis:
         "I2",
     ]
 
-    def __init__(self, data, meta, dataset, event, latency=0.0, channel=[0]):
+    def __init__(self, data, david, dataset, event, latency=0.0, channel=[0]):
         """
         -author: Wujieyu
         -Created on: 2022-8-8
@@ -145,13 +145,13 @@ class TimeAnalysis:
             2022-8-15 by Wu Jieyu
         Args:
             data(ndarray):the EEG data
-            meta(dataframe): information of the selected data
+            david(dataframe): information of the selected data
             dataset(dataset): BaseDataset
             event(string): event trigger
             latency(float): start moment of the epoch, by default 0
             channel(list): selected channels, by default [0]
         """
-        sub_meta = meta[meta["event"] == event]
+        sub_meta = david[david["event"] == event]
         event_id = sub_meta.index.to_numpy()
         self.data_length = np.round(data.shape[2] / dataset.srate)
 

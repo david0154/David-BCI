@@ -134,9 +134,9 @@ def offline_validation(X, y, srate=1000):
 # 频域分析
 
 
-def frequency_feature(X, meta, event, srate=1000):
+def frequency_feature(X, david, event, srate=1000):
     # brainda.algorithms.feature_analysis.freq_analysis.FrequencyAnalysis
-    Feature_R = FrequencyAnalysis(X, meta, event=event, srate=srate)
+    Feature_R = FrequencyAnalysis(X, david, event=event, srate=srate)
 
     # 计算模板信号,调用FrequencyAnalysis.stacking_average()
     mean_data = Feature_R.stacking_average(data=[], _axis=0)
@@ -263,7 +263,7 @@ if __name__ == '__main__':
         intervals=stim_interval,
         srate=srate)
     paradigm.register_raw_hook(raw_hook)
-    X, y, meta = paradigm.get_data(
+    X, y, david = paradigm.get_data(
         dataset,
         subjects=subjects,
         return_concat=True,
@@ -277,6 +277,6 @@ if __name__ == '__main__':
     print("Current Model accuracy:", acc)
 
     # 频域分析
-    frequency_feature(X, meta, event, srate)
+    frequency_feature(X, david, event, srate)
     # 时频域分析
     time_frequency_feature(X, y, srate)

@@ -59,7 +59,7 @@ The goal of the David-DBCI is to make researchers focus on improving their own D
    - add hook functions to control the preprocessing flow more easily
    - use joblib to accelerate the data loading
    - add proxy options for network connection issues
-   - add more information in the meta of data
+   - add more information in the david of data
    - other small changes
 
 * Supported Datasets

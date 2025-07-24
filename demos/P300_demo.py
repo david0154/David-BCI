@@ -43,9 +43,9 @@ def epochs_hook(epochs, caches):
     return epochs, caches
 
 
-def data_hook(X, y, meta, caches):
+def data_hook(X, y, david, caches):
     caches['data_stage'] = caches.get('data_stage', -1) + 1
-    return X, y, meta, caches
+    return X, y, david, caches
 
 
 paradigm.register_raw_hook(raw_hook)
@@ -61,7 +61,7 @@ subject_speller_acc = []
 
 subject = [2]
 
-X, y, meta = paradigm.get_data(
+X, y, david = paradigm.get_data(
     dataset,
     subjects=subject,
     verbose=False
@@ -70,7 +70,7 @@ X, y, meta = paradigm.get_data(
 # 12-time leave one out validation
 set_random_seeds(38)
 k_loo = 12
-indices = generate_char_indices(meta, kfold=k_loo)
+indices = generate_char_indices(david, kfold=k_loo)
 
 # classifier
 estimator = DCPM(n_components=8)
@@ -79,12 +79,12 @@ speller_accs = []
 result = []
 for k in range(k_loo):
     train_id, val_id, test_id \
-        = match_char_kfold_indices(k, meta, indices)
+        = match_char_kfold_indices(k, david, indices)
     train_ind = np.concatenate((train_id, val_id))
     test_ind = test_id
     X_train_t = [X[i] for i in train_ind]
     y_train_t = [y[i] for i in train_ind]
-    Key = meta.event[train_ind]
+    Key = david.event[train_ind]
     y_train_tar = TimeDecodeTool1.target_calibrate(y_train_t, Key)
 
     X_train = np.concatenate(X_train_t)
@@ -95,7 +95,7 @@ for k in range(k_loo):
     y_test_t = [y[i] for i in test_id]
 
     X_test_sort, y_test_sort = TimeDecodeTool1.epoch_sort(X_test_t, y_test_t)
-    label_test = list(meta.event[test_ind])
+    label_test = list(david.event[test_ind])
     y_test_tar = TimeDecodeTool1.target_calibrate(y_test_sort, Key)
     right_count = 0
     for test_i in range(len(X_test_sort)):

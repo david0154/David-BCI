@@ -42,18 +42,18 @@ def epochs_hook(epochs, caches):
     caches['epoch_stage'] = caches.get('epoch_stage', -1) + 1
     return epochs, caches
 
-def data_hook(X, y, meta, caches):
+def data_hook(X, y, david, caches):
     # retrive caches from the last stage
     # print("Raw stage:{},Epochs stage:{}".format(caches['raw_stage'], caches['epoch_stage']))
-    # do something with X, y, and meta
+    # do something with X, y, and david
     caches['data_stage'] = caches.get('data_stage', -1) + 1
-    return X, y, meta, caches
+    return X, y, david, caches
 
 paradigm.register_raw_hook(raw_hook)
 paradigm.register_epochs_hook(epochs_hook)
 paradigm.register_data_hook(data_hook)
 
-X, y, meta = paradigm.get_data(
+X, y, david = paradigm.get_data(
     dataset,
     subjects=[23],
     return_concat=True,
@@ -64,7 +64,7 @@ X, y, meta = paradigm.get_data(
 set_random_seeds(38)
 n_splits = 6
 # train and validate set will be merged
-indices = generate_shuffle_indices(meta, n_splits=n_splits,train_size=1,validate_size=1,test_size=4)  # Nt = 2
+indices = generate_shuffle_indices(david, n_splits=n_splits,train_size=1,validate_size=1,test_size=4)  # Nt = 2
 
 # classifier
 filterweights = [(idx_filter+1) ** (-1.25) + 0.25 for idx_filter in range(5)]
@@ -75,7 +75,7 @@ accs_withSAME = []
 accs_withmsSAME = []
 for k in range(n_splits):
 
-    train_ind, validate_ind, test_ind = match_shuffle_indices(k, meta, indices)
+    train_ind, validate_ind, test_ind = match_shuffle_indices(k, david, indices)
     # merge train and validate set
     train_ind = np.concatenate((train_ind, validate_ind))
     del validate_ind

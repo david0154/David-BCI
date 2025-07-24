@@ -46,7 +46,7 @@ all_subject_x = np.concatenate(all_subject_x)
 all_subject_y = np.concatenate(all_subject_y)
 
 # get single subject data in target dataset, then fine-tuning&testing
-X, y, meta = target_paradigm.get_data(
+X, y, david = target_paradigm.get_data(
         target_dataset,
         subjects=[9],
         return_concat=True,
@@ -56,7 +56,7 @@ X, y, meta = target_paradigm.get_data(
 # 6-fold cross validation
 set_random_seeds(38)
 kfold = 6
-indices = generate_kfold_indices(meta, kfold=kfold)
+indices = generate_kfold_indices(david, kfold=kfold)
 
 # initializing model for pre-training and pre-train method
 target_n_class = 4  # 'left_hand', 'right_hand', 'feet', 'rest'
@@ -83,7 +83,7 @@ tflm.pretraining(source_estimator, save_path, all_subject_x, all_subject_y)
 accs_wop = []
 accs_wp = []
 for k in range(kfold):
-    train_ind, validate_ind, test_ind = match_kfold_indices(k, meta, indices)
+    train_ind, validate_ind, test_ind = match_kfold_indices(k, david, indices)
     train_ind = np.concatenate((train_ind, validate_ind))
     # fine-tuning model with pre-train
     estimator = tflm.finetuning(source_estimator, save_path, X[train_ind], y[train_ind])

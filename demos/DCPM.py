@@ -43,9 +43,9 @@ def epochs_hook(epochs, caches):
     return epochs, caches
 
 
-def data_hook(X, y, meta, caches):
+def data_hook(X, y, david, caches):
     caches['data_stage'] = caches.get('data_stage', -1) + 1
-    return X, y, meta, caches
+    return X, y, david, caches
 
 
 paradigm.register_raw_hook(raw_hook)
@@ -61,7 +61,7 @@ subject_speller_acc = []
 
 subject = [2]
 
-X, y, meta = paradigm.get_data(
+X, y, david = paradigm.get_data(
     dataset,
     subjects=subject,
     verbose=False
@@ -70,14 +70,14 @@ X, y, meta = paradigm.get_data(
 # 3-time leave one out validation
 set_random_seeds(38)
 k_loo = 3
-indices = generate_char_indices(meta, kfold=6)
+indices = generate_char_indices(david, kfold=6)
 
 # classifier
 estimator = DCPM(n_components=8)
 epoch_accs = []
 speller_accs = []
 for k in range(k_loo):
-    train_ind, validate_ind, test_ind = match_char_kfold_indices(k, meta, indices)
+    train_ind, validate_ind, test_ind = match_char_kfold_indices(k, david, indices)
     # merge train and validate set
     train_ind = np.concatenate((train_ind, validate_ind))
     X_train = np.concatenate([X[i] for i in train_ind])
@@ -87,7 +87,7 @@ for k in range(k_loo):
     y_test_t = [y[i] for i in test_ind]
     X_test = np.concatenate(X_test_t)
     y_test = np.concatenate(y_test_t)
-    label_test = list(meta.event[test_ind])
+    label_test = list(david.event[test_ind])
     model = estimator.fit(X_train, y_train-1)
     p_labels = model.predict(X_test)
     epoch_accs.append(np.mean(p_labels == y_test-1))

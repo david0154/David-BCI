@@ -46,11 +46,11 @@ filterbank = generate_filterbank(
     wp, ws, srate, order=4, rp=1)
 filterweights = np.arange(1, len(filterbank)+1)**(-1.25) + 0.25
 
-def data_hook(X, y, meta, caches):
+def data_hook(X, y, david, caches):
     filterbank = generate_filterbank(
         [[8, 90]], [[6, 95]], srate, order=4, rp=1)
     X = sosfiltfilt(filterbank[0], X, axis=-1)
-    return X, y, meta, caches
+    return X, y, david, caches
 
 paradigm.register_data_hook(data_hook)
 
@@ -70,7 +70,7 @@ models = OrderedDict([
             filterweights=filterweights)),
 ])
 
-X, y, meta = paradigm.get_data(
+X, y, david = paradigm.get_data(
     dataset,
     subjects=[1],
     return_concat=True,
@@ -78,7 +78,7 @@ X, y, meta = paradigm.get_data(
     verbose=False)
 
 set_random_seeds(42)
-loo_indices = generate_loo_indices(meta)
+loo_indices = generate_loo_indices(david)
 
 for model_name in models:
     if model_name == 'fbtdca':
@@ -92,7 +92,7 @@ for model_name in models:
     loo_accs = []
     for k in range(n_loo):
         train_ind, validate_ind, test_ind = match_loo_indices(
-            k, meta, loo_indices)
+            k, david, loo_indices)
         train_ind = np.concatenate([train_ind, validate_ind])
 
         trainX, trainY = filterX[train_ind], filterY[train_ind]

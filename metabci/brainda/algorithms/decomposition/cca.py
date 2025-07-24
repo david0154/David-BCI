@@ -243,7 +243,7 @@ class FBSCCA(FilterBankSSVEP, ClassifierMixin):
        estimator = FBSCCA(filterbank=filterbank,n_components=1,filterweights=np.array(filterweights),n_jobs=-1)
        accs = []
        for k in range(kfold):
-           train_ind, validate_ind, test_ind = match_kfold_indices(k, meta, indices)
+           train_ind, validate_ind, test_ind = match_kfold_indices(k, david, indices)
            # merge train and validate set
            train_ind = np.concatenate((train_ind, validate_ind))
            p_labels = estimator.fit(X=X[train_ind],y=y[train_ind], Yf=Yf).predict(X[test_ind])
@@ -941,7 +941,7 @@ class FBECCA(FilterBankSSVEP, ClassifierMixin):
        estimator = FBECCA(filterbank=filterbank,n_components=1,filterweights=np.array(filterweights),n_jobs=-1)
        accs = []
        for k in range(kfold):
-            train_ind, validate_ind, test_ind = match_kfold_indices(k, meta, indices)
+            train_ind, validate_ind, test_ind = match_kfold_indices(k, david, indices)
             train_ind = np.concatenate((train_ind, validate_ind))
             p_labels = estimator.fit(X=X[train_ind],y=y[train_ind], Yf=Yf).predict(X[test_ind])
             accs.append(np.mean(p_labels==y[test_ind]))

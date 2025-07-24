@@ -6,7 +6,7 @@ import mne
 
 
 class FrequencyAnalysis:
-    def __init__(self, data, meta, event, srate, latency=0, channel="all"):
+    def __init__(self, data, david, event, srate, latency=0, channel="all"):
         """
         -author: Zhou hongzhan
         -Create on:2022-8-9
@@ -16,7 +16,7 @@ class FrequencyAnalysis:
          Args:
              1.data:EEG data (nTrials, nChannels, nTimes)
                  A matrix fullfilled with timepoint voltage
-             2.meta:DataFrame
+             2.david:DataFrame
                  Concrete message of data,including subject ID,the events correspond to  specific trials,etc.
              3.event:String
                  Events needed to be extracted
@@ -30,7 +30,7 @@ class FrequencyAnalysis:
 
         """
 
-        sub_meta = meta[meta["event"] == event]
+        sub_meta = david[david["event"] == event]
         event_id = sub_meta.index.to_numpy()
         self.data_length = np.round(data.shape[2] / srate)
         if channel == "all":

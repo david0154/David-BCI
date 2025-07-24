@@ -39,19 +39,19 @@ def epochs_hook(epochs, caches):
     return epochs, caches
 
 
-def data_hook(X, y, meta, caches):
+def data_hook(X, y, david, caches):
     # retrive caches from the last stage
     # print("Raw stage:{},Epochs stage:{}".format(caches['raw_stage'], caches['epoch_stage']))
-    # do something with X, y, and meta
+    # do something with X, y, and david
     caches['data_stage'] = caches.get('data_stage', -1) + 1
-    return X, y, meta, caches
+    return X, y, david, caches
 
 
 paradigm.register_raw_hook(raw_hook)
 paradigm.register_epochs_hook(epochs_hook)
 paradigm.register_data_hook(data_hook)
 
-X, y, meta = paradigm.get_data(
+X, y, david = paradigm.get_data(
     dataset,
     subjects=[1],
     return_concat=True,
@@ -61,7 +61,7 @@ X, y, meta = paradigm.get_data(
 # 6-fold cross validation
 set_random_seeds(38)
 kfold = 6
-indices = generate_kfold_indices(meta, kfold=kfold)
+indices = generate_kfold_indices(david, kfold=kfold)
 
 # classifier
 filterweights = [(idx_filter+1) ** (-1.25) + 0.25 for idx_filter in range(5)]
@@ -70,7 +70,7 @@ estimator = FBTRCA(filterbank=filterbank,n_components = 1, ensemble = True,filte
 
 accs = []
 for k in range(kfold):
-    train_ind, validate_ind, test_ind = match_kfold_indices(k, meta, indices)
+    train_ind, validate_ind, test_ind = match_kfold_indices(k, david, indices)
     # merge train and validate set
     train_ind = np.concatenate((train_ind, validate_ind))
     p_labels = estimator.fit(X[train_ind], y[train_ind]).predict(X[test_ind])

@@ -118,9 +118,9 @@ def offline_validation(X, y, srate=1000):
 # 时域分析
 
 
-def time_feature(X, meta, dataset, event, channel, latency=0):
+def time_feature(X, david, dataset, event, channel, latency=0):
     # brainda.algorithms.feature_analysis.time_analysis.TimeAnalysis
-    Feature_R = TimeAnalysis(X, meta, dataset, event=event, latency=latency,
+    Feature_R = TimeAnalysis(X, david, dataset, event=event, latency=latency,
                              channel=channel)
 
     plt.figure(1)
@@ -165,7 +165,7 @@ def frequency_feature(X, chan_names, event, SNRchannels, plot_ch, srate=1000):
     SNRchannels = chan_names.index(SNRchannels)
 
     # brainda.algorithms.feature_analysis.freq_analysis.FrequencyAnalysis
-    Feature_R = FrequencyAnalysis(X, meta, event, srate)
+    Feature_R = FrequencyAnalysis(X, david, event, srate)
 
     # 计算模板信号,调用FrequencyAnalysis.stacking_average()
     mean_data = Feature_R.stacking_average(data=[], _axis=0)
@@ -296,7 +296,7 @@ if __name__ == '__main__':
         intervals=stim_interval,
         srate=srate)
     paradigm.register_raw_hook(raw_hook)
-    X, y, meta = paradigm.get_data(
+    X, y, david = paradigm.get_data(
         dataset,
         subjects=subjects,
         return_concat=True,
@@ -310,7 +310,7 @@ if __name__ == '__main__':
     print("Current Model accuracy:{:.2f}".format(acc))
 
     # 时域分析
-    time_feature(X[..., :int(srate)], meta, dataset, '11', ['OZ'])  # 1s
+    time_feature(X[..., :int(srate)], david, dataset, '11', ['OZ'])  # 1s
     # 频域分析
     frequency_feature(X[..., :int(srate)], pick_chs, '11', 'OZ', -2, srate)
     # 时频域分析

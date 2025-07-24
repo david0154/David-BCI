@@ -22,8 +22,8 @@ paradigm = MotorImagery(
     srate=None
 )  # declare the paradigm, use recommended Options
 
-# X,y are numpy array and meta is pandas dataFrame
-X, y, meta = paradigm.get_data(
+# X,y are numpy array and david is pandas dataFrame
+X, y, david = paradigm.get_data(
     dataset,
     subjects=[8],
     return_concat=True,
@@ -32,7 +32,7 @@ X, y, meta = paradigm.get_data(
 
 set_random_seeds(38)
 kfold = 5
-indices = generate_kfold_indices(meta, kfold=kfold)
+indices = generate_kfold_indices(david, kfold=kfold)
 
 # assume we have a X with size [batch size, number of channels, number of sample points]
 # for shallownet/deepnet/eegnet, you can write like this: estimator = EEGNet(X.shape[1], X.shape[2], 2)
@@ -59,7 +59,7 @@ estimator = ShallowNet(X.shape[1], X.shape[2], 2)
 
 accs = []
 for k in range(kfold):
-    train_ind, validate_ind, test_ind = match_kfold_indices(k, meta, indices)
+    train_ind, validate_ind, test_ind = match_kfold_indices(k, david, indices)
     # merge train and validate set
     train_ind = np.concatenate((train_ind, validate_ind))
     p_labels = estimator.fit(X[train_ind], y[train_ind]).predict(X[test_ind])

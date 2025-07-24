@@ -157,9 +157,9 @@ class BaseParadigm(metaclass=ABCMeta):
             Callable object to process ndarray data before return it.
             Its' signature should look like:
 
-            hook(X, y, meta, caches) -> X, y, meta, caches
+            hook(X, y, david, caches) -> X, y, david, caches
 
-            where caches is an dict storing information, X, y are ndarray object, meta is a pandas DataFrame instance.
+            where caches is an dict storing information, X, y are ndarray object, david is a pandas DataFrame instance.
         """
         self._data_hook = hook
 
@@ -270,13 +270,13 @@ class BaseParadigm(metaclass=ABCMeta):
                             epochs = epochs.resample(self.srate)
                             # epochs = epochs.decimate(dataset.srate//self.srate)
 
-                        # retrieve X, y and meta
+                        # retrieve X, y and david
                         X = epochs.get_data() * 1e6  # micro-volt default
                         y = epochs.events[:, -1]
                         trial_ids = np.argwhere(
                             events[:, -1] == list(epochs.event_id.values())[0]
                         ).reshape((-1))
-                        meta = pd.DataFrame(
+                        david = pd.DataFrame(
                             {
                                 "subject": [subject] * len(epochs),
                                 "session": [session] * len(epochs),
@@ -289,11 +289,11 @@ class BaseParadigm(metaclass=ABCMeta):
 
                         # do data hook
                         if self._data_hook:
-                            X, y, meta, caches = self._data_hook(
-                                X, y, meta, caches)
+                            X, y, david, caches = self._data_hook(
+                                X, y, david, caches)
                         elif hasattr(dataset, "data_hook"):
-                            X, y, meta, caches = dataset.data_hook(
-                                X, y, meta, caches)
+                            X, y, david, caches = dataset.data_hook(
+                                X, y, david, caches)
 
                         # collecting data
                         pre_X = Xs.get(event_name)
@@ -311,10 +311,10 @@ class BaseParadigm(metaclass=ABCMeta):
                         pre_meta = metas.get(event_name)
                         if pre_meta is not None:
                             metas[event_name] = pd.concat(
-                                (pre_meta, meta), axis=0, ignore_index=True
+                                (pre_meta, david), axis=0, ignore_index=True
                             )
                         else:
-                            metas[event_name] = meta
+                            metas[event_name] = david
         return Xs, ys, metas
 
     @verbose
@@ -353,7 +353,7 @@ class BaseParadigm(metaclass=ABCMeta):
         Returns
         -------
         Tuple[Union[Dict[str, Union[np.ndarray, pd.DataFrame]], Union[np.ndarray, pd.DataFrame]], ...]
-            Xs, ys, metas, corresponding to data, label and meta data
+            Xs, ys, metas, corresponding to data, label and david data
 
         Raises
         ------
@@ -373,7 +373,7 @@ class BaseParadigm(metaclass=ABCMeta):
         ys = {}
         metas = {}
 
-        X, y, meta = zip(
+        X, y, david = zip(
             *Parallel(n_jobs=n_jobs)(
                 delayed(self._get_single_subject_data)(
                     dataset, sub_id, verbose=verbose)
@@ -394,9 +394,9 @@ class BaseParadigm(metaclass=ABCMeta):
             )
             metas[event_name] = pd.concat(
                 [
-                    meta[i][event_name]
+                    david[i][event_name]
                     for i in range(len(subjects))
-                    if event_name in meta[i]
+                    if event_name in david[i]
                 ],
                 axis=0,
                 ignore_index=True,
@@ -689,8 +689,8 @@ class BaseTimeEncodingParadigm(BaseParadigm):
                             trial_id = trial_index[0]
                             trial_index.pop(0)
                             # Unlike the base paradigm class, we manually process a single trial
-                            # So the meta only contains a single trial info
-                            meta = pd.DataFrame(
+                            # So the david only contains a single trial info
+                            david = pd.DataFrame(
                                 {
                                     "subject": [subject],
                                     "session": [session],
@@ -703,11 +703,11 @@ class BaseTimeEncodingParadigm(BaseParadigm):
                             )
 
                             if self._data_hook:
-                                unit_X, unit_y, meta, caches = self._data_hook(
-                                    unit_X, unit_y, meta, caches)
+                                unit_X, unit_y, david, caches = self._data_hook(
+                                    unit_X, unit_y, david, caches)
                             elif hasattr(dataset, "data_hook"):
-                                unit_X, unit_y, meta, caches = dataset.data_hook(
-                                    unit_X, unit_y, meta, caches)
+                                unit_X, unit_y, david, caches = dataset.data_hook(
+                                    unit_X, unit_y, david, caches)
 
                             # collecting data
                             pre_X = Xs.get(event_name)
@@ -727,10 +727,10 @@ class BaseTimeEncodingParadigm(BaseParadigm):
                             pre_meta = metas.get(event_name)
                             if pre_meta is not None:
                                 metas[event_name] = pd.concat(
-                                    (pre_meta, meta), axis=0, ignore_index=True
+                                    (pre_meta, david), axis=0, ignore_index=True
                                 )
                             else:
-                                metas[event_name] = meta
+                                metas[event_name] = david
         return Xs, ys, metas
 
     @verbose
@@ -761,7 +761,7 @@ class BaseTimeEncodingParadigm(BaseParadigm):
         # due to the subject data are storage in list in sequence
         subjects.sort()
 
-        X, y, meta = zip(
+        X, y, david = zip(
             *Parallel(n_jobs=n_jobs)(
                 delayed(self._get_single_subject_data)(
                     dataset, sub_id, verbose=verbose)
@@ -780,12 +780,12 @@ class BaseTimeEncodingParadigm(BaseParadigm):
                     for j in range(len(y[i][event_name])):
                         ys.append(y[i][event_name][j])
 
-            if event_name in meta[i]:
+            if event_name in david[i]:
                 metas[event_name] = pd.concat(
                     [
-                        meta[i][event_name]
+                        david[i][event_name]
                         for i in range(len(subjects))
-                        if event_name in meta[i]
+                        if event_name in david[i]
                     ],
                     axis=0,
                     ignore_index=True

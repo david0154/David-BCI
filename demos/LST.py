@@ -37,12 +37,12 @@ def epochs_hook(epochs, caches):
     caches['epoch_stage'] = caches.get('epoch_stage', -1) + 1
     return epochs, caches
 
-def data_hook(X, y, meta, caches):
+def data_hook(X, y, david, caches):
     # retrive caches from the last stage
     # print("Raw stage:{},Epochs stage:{}".format(caches['raw_stage'], caches['epoch_stage']))
-    # do something with X, y, and meta
+    # do something with X, y, and david
     caches['data_stage'] = caches.get('data_stage', -1) + 1
-    return X, y, meta, caches
+    return X, y, david, caches
 
 paradigm.register_raw_hook(raw_hook)
 paradigm.register_epochs_hook(epochs_hook)

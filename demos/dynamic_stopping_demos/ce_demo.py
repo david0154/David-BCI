@@ -48,11 +48,11 @@ filterbank = generate_filterbank(
     wp, ws, srate, order=4, rp=1)
 filterweights = np.arange(1, len(filterbank)+1)**(-1.25) + 0.25
 
-def data_hook(X, y, meta, caches):
+def data_hook(X, y, david, caches):
     filterbank = generate_filterbank(
         [[8, 90]], [[6, 95]], srate, order=4, rp=1)
     X = sosfiltfilt(filterbank[0], X, axis=-1)
-    return X, y, meta, caches
+    return X, y, david, caches
 
 paradigm.register_data_hook(data_hook)
 
@@ -72,14 +72,14 @@ models = OrderedDict([
             filterweights=filterweights)),
 ])
 
-X, y, meta = paradigm.get_data(
+X, y, david = paradigm.get_data(
     dataset,
     subjects=[1],
     return_concat=True,
     n_jobs=1,
     verbose=False)
 
-loo_indices = generate_loo_indices(meta)
+loo_indices = generate_loo_indices(david)
 
 for model_name in models:
     Ds = ce.CE(clone(models[model_name]),40)
@@ -101,7 +101,7 @@ for model_name in models:
         filterX = filterX - np.mean(filterX, axis=-1, keepdims=True)
     
         train_ind, validate_ind, _ = match_loo_indices(
-            5, meta, loo_indices)
+            5, david, loo_indices)
         train_ind = np.concatenate([train_ind, validate_ind])
 
         trainX, trainY = filterX[train_ind], filterY[train_ind]
@@ -120,7 +120,7 @@ for model_name in models:
 
         filterX = filterX - np.mean(filterX, axis=-1, keepdims=True)
         _, _, test_ind = match_loo_indices(
-                        5, meta, loo_indices)
+                        5, david, loo_indices)
         testX, testY = filterX[test_ind], filterY[test_ind]
         # print(testY)
         bufferX = testX[i:i+1,:,:]
