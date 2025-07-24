@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Authors: Swolf <swolfforever@gmail.com>
+# Authors: Arya Banerjee
 # Date: 2020/12/07
 # License: MIT License
 import mne

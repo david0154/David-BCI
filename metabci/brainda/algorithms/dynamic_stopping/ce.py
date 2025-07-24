@@ -5,7 +5,7 @@ This module contains the implementation of the CE (Cross-Entropy) class.
 Classes:
     CE: A class for handling dynamic stopping algorithms using cross-entropy based criteria.
 
-Authors: Duan Shunguo<dsg@tju.edu.cn>
+Authors: Arya Banerjee
 
 Date: 2024/9/1
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Authors: Swolf <swolfforever@gmail.com>
+# Authors: Arya Banerjee
 # Date: 2021/1/23
 # License: MIT License
 """
@@ -348,7 +348,7 @@ class FGDA(BaseEstimator, TransformerMixin):
     """
         Characteristics and uses of classes FGDA
 
-        Authors: Swolf <swolfforever@gmail.com>
+        Authors: Arya Banerjee
 
         Created on: 2021-1-23
 
@@ -429,7 +429,7 @@ class FGDA(BaseEstimator, TransformerMixin):
 class MDRM(BaseEstimator, TransformerMixin, ClassifierMixin):
     """ Characteristics and uses of classes  MDRM
 
-        Authors: Swolf <swolfforever@gmail.com>
+        Authors: Arya Banerjee
 
         Date: 2021-1-23
 
@@ -577,7 +577,7 @@ class FgMDRM(BaseEstimator, TransformerMixin, ClassifierMixin):
     """
     Characteristics and uses of classes FgMDRM
 
-    Authors: Swolf <swolfforever@gmail.com>
+    Authors: Arya Banerjee
 
     Date: 2021-1-23
 
@@ -719,7 +719,7 @@ class TSClassifier(BaseEstimator, ClassifierMixin):
     """
     Characteristics and uses of classes TSClassifier
 
-    Authors: Swolf <swolfforever@gmail.com>
+    Authors: Arya Banerjee
 
     Date: 2021-1-23
 
@@ -832,7 +832,7 @@ class Alignment(BaseEstimator, TransformerMixin):
     """
     Characteristics and uses of classes Alignment
 
-    Authors: Swolf <swolfforever@gmail.com>
+    Authors: Arya Banerjee
 
     Date: 2021-1-23
 
@@ -982,7 +982,7 @@ class RecursiveAlignment(BaseEstimator, TransformerMixin):
     """
     Characteristics and uses of classes RecursiveAlignment
 
-    Authors: Swolf <swolfforever@gmail.com>
+    Authors: arya <davidk76011@gmail.com>
 
     Date: 2021-1-23
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Authors: Swolf <swolfforever@gmail.com>
+# Authors: Arya Banerjee
 # Date: 2021/1/07
 # License: MIT License
 from functools import partial

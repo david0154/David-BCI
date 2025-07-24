@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # DSP: Discriminal Spatial Patterns
-# Authors: Swolf <swolfforever@gmail.com>
+# Authors: Arya Banerjee
 #          Junyang Wang <2144755928@qq.com>
 # Last update date: 2022-8-11
 # License: MIT License
@@ -26,7 +26,7 @@ def xiang_dsp_kernel(
     finds a projection matrix that maximize the between-class scatter matrix and
     minimize the within-class scatter matrix. Currently only support for two types of data.
 
-    Author: Swolf <swolfforever@gmail.com>
+    Author: Arya Banerjee
 
     Created on: 2021-1-07
 
@@ -107,7 +107,7 @@ def xiang_dsp_feature(
     """
     Return DSP features in paper [1]_.
 
-    Author: Swolf <swolfforever@gmail.com>
+    Author: Arya Banerjee
 
     Created on: 2021-1-07
 
@@ -157,7 +157,7 @@ class DSP(BaseEstimator, TransformerMixin, ClassifierMixin):
     """
     DSP: Discriminal Spatial Patterns
 
-    Author: Swolf <swolfforever@gmail.com>
+    Author: Arya Banerjee
 
     Created on: 2021-1-07
 
@@ -322,7 +322,7 @@ class FBDSP(FilterBankSSVEP, ClassifierMixin):
     """
     FBDSP: FilterBank DSP
 
-    Author: Swolf <swolfforever@gmail.com>
+    Author: Arya Banerjee
 
     Created on: 2021-1-07
 

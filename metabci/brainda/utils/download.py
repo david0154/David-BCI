@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Downloading utilies
 #
-# Authors: Swolf <swolfforever@gmail.com>
+# Authors: Arya Banerjee
 # Date: 2020/12/07
 # License: MIT License
 from mne.datasets.utils import _get_path, _do_path_update

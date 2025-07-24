@@ -5,7 +5,7 @@ This module contains the implementation of the LDA (Linear Discriminant Analysis
 Classes:
     LDA: A class for handling dynamic stopping algorithms using Linear Discriminant Analysis.
 
-Authors: Duan Shunguo<dsg@tju.edu.cn>
+Authors: Arya Banerjee
 
 Date: 2024/9/1
 

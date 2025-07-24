@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Authors: Swolf <swolfforever@gmail.com>
+# Authors: Arya Banerjee
 # Date: 2020/12/28
 # License: MIT License
 """

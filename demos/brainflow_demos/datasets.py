@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Authors: zhaowei
+# Authors: Arya
 # Date: 2022/10/27
 # License: MIT License
 """

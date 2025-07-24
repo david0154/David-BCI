@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Authors: Swolf <swolfforever@gmail.com>
+# Authors: Arya Banerjee
 # Date: 2021/9/12
 # License: MIT License
 """
@@ -41,7 +41,7 @@ class ConvCA(nn.Module):
     the correlation coefficients of the features of these two types of signals were calculated as decision values,
     and the linear layer was used for classification.
 
-    author: Swolf <swolfforever@gmail.com>
+    author: Arya Banerjee
 
     Created on: 2021-9-12
 

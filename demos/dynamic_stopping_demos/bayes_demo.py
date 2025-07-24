@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Authors: Duan Shunguo<dsg@tju.edu.cn>
+# Authors: Arya Banerjee
 # Date: 2024/9/1
 """
 This is a demo for the Bayes algorithm.

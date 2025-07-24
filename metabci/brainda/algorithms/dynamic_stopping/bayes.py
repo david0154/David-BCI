@@ -10,7 +10,7 @@ Classes:
     sufficient based on the current length of EEG data and output the result, achieving higher accuracy and
     signal transmission rate in a shorter time.
 
-Authors: Duan Shunguo<dsg@tju.edu.cn>
+Authors: Arya Banerjee
 
 Date: 2024/9/1
 

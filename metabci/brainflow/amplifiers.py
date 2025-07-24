@@ -74,7 +74,7 @@ class Marker(RingBuffer):
     -update log:
         2022-08-10 by Wei Zhao
     -update log:
-        2024-09-01 by Duan Shunguo<dsg@tju.edu.cn>
+        2024-09-01 by Arya Banerjee
     Parameters
     ----------
         interval: list,

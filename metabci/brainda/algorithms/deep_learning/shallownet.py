@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Authors: Swolf <swolfforever@gmail.com>
+# Authors: Arya Banerjee
 # Date: 2021/7/06
 # License: MIT License
 """
@@ -51,7 +51,7 @@ class ShallowNet(nn.Module):
     the average pool layer,
     referring to experimental log-variance calculations in the FBCSP algorithm.
 
-    author: Swolf <swolfforever@gmail.com>
+    author: Arya Banerjee
 
     Created on: 2021-07-06
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Authors: Swolf <swolfforever@gmail.com>
+# Authors: Arya Banerjee
 # Date: 2021/1/07
 # License: MIT License
 """
@@ -503,7 +503,7 @@ class CSP(BaseEstimator, TransformerMixin):
     """
     common spatial pattern (CSP)
 
-    author: Swolf <swolfforever@gmail.com>
+    author: Arya Banerjee
 
     Created on:2021-1-07
 
@@ -608,7 +608,7 @@ class MultiCSP(BaseEstimator, TransformerMixin):
     """
     Multi common spatial pattern (MultiCSP) [1]_.
 
-    author: Swolf <swolfforever@gmail.com>
+    author: Arya Banerjee
 
     Created on:2021-1-07
 
@@ -890,7 +890,7 @@ class FBCSP(FilterBank):
 
     FilterBank CSP based on paper [1]_.
 
-    author: Swolf <swolfforever@gmail.com>
+    author: Arya Banerjee
 
     Created on:2021-1-07
 
@@ -1029,7 +1029,7 @@ class FBMultiCSP(FilterBank):
     The MultiCSP method based on filter banks is a decoding algorithm formed after adding filter banks and feature
     selection strategies to the MultiCSP algorithm.
 
-    author: Swolf <swolfforever@gmail.com>
+    author: Arya Banerjee
 
     Created on:2021-1-07
 

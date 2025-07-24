@@ -1,7 +1,7 @@
 # DavidBCI
 
 ## Welcome! 
-DavidBCI is an open-source platform for non-invasive brain computer interface. The project of DavidBCI is led by Dr. Arya Banerjee from Amity University, INDIA. DavidBCI has 3 main parts:
+DavidBCI is an open-source platform for non-invasive brain computer interface. The project of DavidBCI is led by Dr. Arya Banerjee from Amity University,Newtown, INDIA. DavidBCI has 3 main parts:
 * brainda: for importing dataset, pre-processing EEG data and implementing EEG decoding algorithms.
 * brainflow: a high speed EEG online data processing framework.
 * brainstim: a simple and efficient DBCI experiment paradigms design module. 
@@ -42,7 +42,7 @@ If someone new to the DBCI wants to do some interesting research, most of their 
 
 ### The solution
 
-The Meta-DBCI will:
+The David-DBCI will:
 
 * Allow users to load the data easily without knowing the details
 * Provide flexible hook functions to control the preprocessing flow
@@ -51,7 +51,7 @@ The Meta-DBCI will:
 * Provide the online data acquiring pipeline.
 * Allow users to bring their pre-trained models to the online decoding pipeline.
 
-The goal of the Meta-DBCI is to make researchers focus on improving their own DBCI algorithms and performing their experiments without wasting too much time on preliminary preparations.
+The goal of the David-DBCI is to make researchers focus on improving their own DBCI algorithms and performing their experiments without wasting too much time on preliminary preparations.
 
 ## Features
 
@@ -117,7 +117,7 @@ The goal of the Meta-DBCI is to make researchers focus on improving their own DB
 ## Who are we?
 
 The DavidBCI project is carried out by researchers from 
-- Academy of Medical Engineering and Translational Medicine, Amity University, India
+- Academy of Medical Engineering and Translational Medicine, Amity University,Newtown, India
 - Amity Brain Center, India
 
 

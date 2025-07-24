@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Authors: Swolf <swolfforever@gmail.com>
+# Authors: Arya Banerjee
 # Date: 2021/1/22
 # License: MIT License
 """Manifold Embedded Knowledge Transfer.
@@ -387,7 +387,7 @@ class MEKT(BaseEstimator, TransformerMixin):
     """
     Manifold Embedded Knowledge Transfer(MEKT) [1]_.
 
-    author: Swolf <swolfforever@gmail.com>
+    author: Arya Banerjee
 
     Created on: 2021-01-22
 

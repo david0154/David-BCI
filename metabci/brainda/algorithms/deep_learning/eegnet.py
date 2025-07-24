@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Authors: Swolf <swolfforever@gmail.com>
+# Authors: Arya Banerjee
 # Date: 2021/1/23
 # License: MIT License
 """
@@ -72,7 +72,7 @@ class EEGNet(nn.Module):
     such as Deep-wise Convolution and Separable Convolution. By applying these convolution layers,
     you can effectively reduce the number of parameters to be fitted and speed up training. [1]_
 
-    author: Swolf <swolfforever@gmail.com>
+    author: Arya Banerjee
 
     Created on: 2021-1-23
 

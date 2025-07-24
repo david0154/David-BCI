@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Authors: Swolf <swolfforever@gmail.com>
+# Authors: Arya Banerjee
 # Date: 2021/1/08
 # License: MIT License
 # update log:2023-12-10 by sunxiwang 18822197631@163.com
@@ -25,7 +25,7 @@ import torch
 def set_random_seeds(seed: int):
     """Set seeds for python random module numpy.random and torch.
 
-    author:Swolf <swolfforever@gmail.com>
+    author:Arya Banerjee
 
     Created on:2021-11-29
 
@@ -62,7 +62,7 @@ class EnhancedStratifiedKFold(StratifiedKFold):
     Performs hierarchical k-fold cross-validation that can contain validation sets.
     The sample size of the validation set will be the same as that of the test set.
 
-    author:Swolf <swolfforever@gmail.com>
+    author:Arya Banerjee
 
     Created on:2021-11-29
 
@@ -117,7 +117,7 @@ class EnhancedStratifiedKFold(StratifiedKFold):
         and test set index subscript (return_validate is True) or the training,
         test set data (return_validate is False).
 
-        author:Swolf <swolfforever@gmail.com>
+        author:Arya Banerjee
 
         Created on:2021-11-29
 
@@ -160,7 +160,7 @@ class EnhancedStratifiedShuffleSplit(StratifiedShuffleSplit):
     Perform hierarchical random cross validation that can contain validation sets.
     The sample size of the validation set will be the same as that of the test set.
 
-    author:Swolf <swolfforever@gmail.com>
+    author:Arya Banerjee
 
     Created on:2021-11-29
 
@@ -234,7 +234,7 @@ class EnhancedStratifiedShuffleSplit(StratifiedShuffleSplit):
         test set data (return_validate is False).
 
 
-        author:Swolf <swolfforever@gmail.com>
+        author:Arya Banerjee
 
         Created on:2021-11-29
 
@@ -275,7 +275,7 @@ class EnhancedLeaveOneGroupOut(LeaveOneGroupOut):
     Leave one method for cross-validation.
     Performs leave-one method cross validation that can contain validation sets.
 
-    author:Swolf <swolfforever@gmail.com>
+    author:Arya Banerjee
 
     Created on:2021-11-29
 
@@ -307,7 +307,7 @@ class EnhancedLeaveOneGroupOut(LeaveOneGroupOut):
         and test set index subscript (return_validate is True) or the training,
         test set data (return_validate is False).
 
-        author:Swolf <swolfforever@gmail.com>
+        author:Arya Banerjee
 
         Created on:2021-11-29
 
@@ -386,7 +386,7 @@ def generate_kfold_indices(
     to generate cross-validation grouping subscripts.
     The subscript of K-fold cross-validation is generated based on meta class data structure.
 
-    author:Swolf <swolfforever@gmail.com>
+    author:Arya Banerjee
 
     Created on:2021-11-29
 
@@ -445,7 +445,7 @@ def match_kfold_indices(k: int, meta: DataFrame, indices):
     Based on meta class data structure and combined with the output results of generate_kfold_indices(),
     the specific index is generated.
 
-    author:Swolf <swolfforever@gmail.com>
+    author:Arya Banerjee
 
     Created on:2021-11-29
 
@@ -496,7 +496,7 @@ def generate_loo_indices(meta: DataFrame):
     to generate cross-validation grouping subscripts.
     The subscript of leave-one method cross-validation is generated based on meta class data structure.
 
-    author:Swolf <swolfforever@gmail.com>
+    author:Arya Banerjee
 
     Created on:2021-11-29
 
@@ -549,7 +549,7 @@ def match_loo_indices(k: int, meta: DataFrame, indices):
     Based on the meta class data structure and combined with the output of generate_loo_indices(),
     the specific index is generated.
 
-    author:Swolf <swolfforever@gmail.com>
+    author:Arya Banerjee
 
     Created on:2021-11-29
 
@@ -634,7 +634,7 @@ def generate_shuffle_indices(
     generating cross validation grouping subscript.
     Generate hierarchical random cross-validation subscripts based on meta-class data structures.
 
-    author:Swolf <swolfforever@gmail.com>
+    author:Arya Banerjee
 
     Created on:2021-11-29
 
@@ -704,7 +704,7 @@ def match_shuffle_indices(k: int, meta: DataFrame, indices):
     Based on the meta class data structure and combined with the output of generate_shuffle_indices(),
     a specific index is generated.
 
-    author:Swolf <swolfforever@gmail.com>
+    author:Arya Banerjee
 
     Created on:2021-11-29
 

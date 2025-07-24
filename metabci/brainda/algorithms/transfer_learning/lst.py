@@ -44,7 +44,7 @@ def lst_kernel(S: ndarray, T: ndarray):
 class LST(BaseEstimator, TransformerMixin):
     """LST converter [1]_.
 
-    author: Swolf <swolfforever@gmail.com>
+    author: Arya Banerjee
 
     Created on: 2021-01-24
 
