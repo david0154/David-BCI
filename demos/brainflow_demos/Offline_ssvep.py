@@ -285,7 +285,7 @@ if __name__ == '__main__':
     paradigm = 'ssvep'
 
     pick_chs = ['PZ', 'PO5', 'PO3', 'POZ', 'PO4', 'PO6', 'O1', 'OZ', 'O2']
-    # //.datasets.py中按照metabci.brainda.datasets数据结构自定义数据类DavidBCIData
+    # //.datasets.py中按照davidbci.brainda.datasets数据结构自定义数据类DavidBCIData
     # declare the dataset
     dataset = DavidBCIData(
         subjects=subjects, srate=srate,

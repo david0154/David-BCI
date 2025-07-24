@@ -253,7 +253,7 @@ if __name__ == '__main__':
                 'CP5', 'CP3', 'CP1', 'CPz', 'CP2', 'CP4', 'CP6', 'P5',
                 'P3', 'P1', 'Pz', 'P2', 'P4', 'P6']
 
-    # //.datasets.py中按照metabci.brainda.datasets数据结构自定义数据类DavidBCIData
+    # //.datasets.py中按照davidbci.brainda.datasets数据结构自定义数据类DavidBCIData
     dataset = DavidBCIData(
         subjects=subjects, srate=srate,
         paradigm='imagery', pattern='imagery')  # declare the dataset
